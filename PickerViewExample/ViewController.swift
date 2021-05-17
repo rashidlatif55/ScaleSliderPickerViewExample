@@ -26,7 +26,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 30
+        return 50
     }
     
     
@@ -35,8 +35,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        picker.subviews[1].isHidden = true
-        picker.subviews[2].isHidden = true
+         
+        if #available(iOS 14, *) {
+            picker.subviews[1].isHidden = true
+        } else {
+            picker.subviews[1].isHidden = true
+            picker.subviews[2].isHidden = true
+        }
+        
         
         let customView = UIView(frame: CGRect(x: 0, y: -5, width: 70, height: height))
         var scaleLabelWidth = 20
@@ -44,12 +50,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             scaleLabelWidth = 40
         }
         let scaleLabel = UIView(frame: CGRect(x: 0, y: 8, width: scaleLabelWidth, height: 4))
-        scaleLabel.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        scaleLabel.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         customView.addSubview(scaleLabel)
         
         let backView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: height))
         customView.addSubview(backView)
-        backView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        backView.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         return customView
     }
     
