@@ -45,13 +45,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         let customView = UIView(frame: CGRect(x: 0, y: -5, width: 70, height: height))
-        var scaleLabelWidth = 20
+        var scaleViewWidth = 20
         if row % 2 == 0 {
-            scaleLabelWidth = 40
+            scaleViewWidth = 40
         }
-        let scaleLabel = UIView(frame: CGRect(x: 0, y: 8, width: scaleLabelWidth, height: 4))
-        scaleLabel.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        customView.addSubview(scaleLabel)
+        let scaleView = UIView(frame: CGRect(x: 0, y: 8, width: scaleViewWidth, height: 4))
+        scaleView.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        customView.addSubview(scaleView)
         
         let backView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: height))
         customView.addSubview(backView)
